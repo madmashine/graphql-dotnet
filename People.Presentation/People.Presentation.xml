@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>People.Presentation</name>
+    </assembly>
+    <members>
+        <member name="M:People.Presentation.People.PeopleQueries.Get(System.Int32)">
+            <summary>
+            Some description test
+            </summary>
+            <param name="id">Some parameter description</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

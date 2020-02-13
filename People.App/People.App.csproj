@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UserSecretsId>1374a26c-9905-4e91-b8dc-e7e34ffe68e2</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+    <NoWarn>1701;1702</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HotChocolate.AspNetCore" Version="10.3.5" />
+    <PackageReference Include="HotChocolate.AspNetCore.GraphiQL" Version="10.3.5" />
+    <PackageReference Include="HotChocolate.AspNetCore.Playground" Version="10.3.5" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\People.Business\People.Business.csproj" />
+    <ProjectReference Include="..\People.Presentation\People.Presentation.csproj" />
+  </ItemGroup>
+
+</Project>
