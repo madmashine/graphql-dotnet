@@ -11,26 +11,26 @@ namespace People.Presentation.Extensions
         {
             if (descriptor is IObjectFieldDescriptor objectField)
             {
-                objectField.Argument(ArgumentName, argumentDescriptor => argumentDescriptor.Type<EnumType<MeasurementUnit>>().DefaultValue(MeasurementUnit.Meters))
+                objectField.Argument(ArgumentName, argumentDescriptor => argumentDescriptor.Type<EnumType<MeasurementSystem>>().DefaultValue(MeasurementSystem.Metric))
                     .Use(next => async middlewareContext =>
                     {
                         await next(middlewareContext).ConfigureAwait(false);
 
                         if (middlewareContext.Result is double length)
                         {
-                            middlewareContext.Result = ConvertToUnit(length, middlewareContext.Argument<MeasurementUnit>(ArgumentName));
+                            middlewareContext.Result = ConvertToUnit(length, middlewareContext.Argument<MeasurementSystem>(ArgumentName));
                         }
                     });
             }
             else if (descriptor is IInterfaceFieldDescriptor interfaceField)
             {
-                interfaceField.Argument(ArgumentName, argumentDescriptor => argumentDescriptor.Type<EnumType<MeasurementUnit>>().DefaultValue(MeasurementUnit.Meters));
+                interfaceField.Argument(ArgumentName, argumentDescriptor => argumentDescriptor.Type<EnumType<MeasurementSystem>>().DefaultValue(MeasurementSystem.Metric));
             }
         }
 
-        private static double ConvertToUnit(double length, MeasurementUnit measurementUnit)
+        private static double ConvertToUnit(double length, MeasurementSystem measurementSystem)
         {
-            if (measurementUnit == MeasurementUnit.Foot)
+            if (measurementSystem == MeasurementSystem.Imperial)
             {
                 return length * 3.28084d;
             }

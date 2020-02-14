@@ -4,11 +4,17 @@
         <name>People.Presentation</name>
     </assembly>
     <members>
+        <member name="M:People.Presentation.People.PeopleMutations.Create">
+            <summary>
+            Add a person
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:People.Presentation.People.PeopleQueries.Get(System.Int32)">
             <summary>
-            Some description test
+            Fetch a single person
             </summary>
-            <param name="id">Some parameter description</param>
+            <param name="id">Entity identification</param>
             <returns></returns>
         </member>
     </members>

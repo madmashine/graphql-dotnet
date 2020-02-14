@@ -17,13 +17,13 @@ namespace People.Presentation.People
         }
 
         /// <summary>
-        /// Some description test
+        /// Fetch a single person
         /// </summary>
-        /// <param name="id">Some parameter description</param>
+        /// <param name="id">Entity identification</param>
         /// <returns></returns>
         public async Task<Person> Get(int id)
         {
-            var getPersonRequest = new GetPersonRequest();
+            var getPersonRequest = new GetPersonRequest(id);
             var personResponse = await _mediator.Send(getPersonRequest);
 
             return personResponse;

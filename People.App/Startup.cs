@@ -1,10 +1,10 @@
 using HotChocolate.AspNetCore;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using People.App.Configurations.Core;
 using People.App.Configurations.Infrastructure;
 
 namespace People.App
@@ -20,7 +20,7 @@ namespace People.App
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMediatR(typeof(Business.AssemblyReference).Assembly);
+            services.AddBusinessLayer();
 
             services.AddPresentationLayer();
         }
